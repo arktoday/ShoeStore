@@ -24,8 +24,7 @@ class AddShoeViewModel : ViewModel() {
         get() = _companyIsCorrect
 
     private val _sizeIsCorrect = MutableLiveData<Boolean>()
-    val sizeIsCorrect: LiveData<Boolean>
-        get() = _sizeIsCorrect
+
 
     fun resetErrors() {
         _nameIsCorrect.value = true
@@ -44,10 +43,8 @@ class AddShoeViewModel : ViewModel() {
         _descriptionIsCorrect.value = descriptionIsCorrect
         val companyIsCorrect = company.isNotBlank()
         _companyIsCorrect.value = companyIsCorrect
-        val sizeIsCorrect = size > 0
-        _sizeIsCorrect.value = sizeIsCorrect
 
-        val dataIsReady = nameIsCorrect && descriptionIsCorrect && companyIsCorrect && sizeIsCorrect
+        val dataIsReady = nameIsCorrect && descriptionIsCorrect && companyIsCorrect
 
         if (dataIsReady) {
             _dataToSave.value = shoe
